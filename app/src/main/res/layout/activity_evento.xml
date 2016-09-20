@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.balada.EventoActivity">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/EventoFooter"
+        android:layout_alignParentTop="true"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/evento_topo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imagem"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/evento" />
+
+                <com.joanzapata.iconify.widget.IconTextView
+                    android:id="@+id/voltar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|top"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:clickable="true"
+                    android:onClick="voltar"
+                    android:text="{fa-chevron-left 150%}"
+                    android:textColor="#FFF" />
+
+                <com.joanzapata.iconify.widget.IconTextView
+                    android:id="@+id/favoritar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|top"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:clickable="true"
+                    android:onClick="favoritar"
+                    android:text="{fa-star-o 150%}"
+                    android:textColor="#FFF" />
+            </FrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/DadosEvento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/evento_topo"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:paddingTop="20dp">
+
+                <LinearLayout
+                    android:id="@+id/CalendarioIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="start|top"
+                    android:background="@drawable/border_all"
+                    android:minWidth="50dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#f00"
+                        android:gravity="center|top"
+                        android:text="JAN"
+                        android:textColor="#fff"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|top"
+                        android:text="01"
+                        android:textColor="#333"
+                        android:textSize="26dp" />
+
+                </LinearLayout>
+
+                <!--<com.joanzapata.iconify.widget.IconTextView
+                    android:id="@+id/CalendarioIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="start|top"
+                    android:paddingLeft="10dp"
+                    android:text="{fa-calendar 300%}"
+                    android:textColor="#333" />-->
+
+                <TextView
+                    android:id="@+id/DescricaoEvento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@id/CalendarioIcon"
+                    android:gravity="start|top"
+                    android:paddingLeft="10dp"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras purus enim, dapibus sed tempus eu, eleifend ut ex"
+                    android:textColor="#686868"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/AutorLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/DescricaoEvento"
+                    android:layout_toRightOf="@id/CalendarioIcon"
+                    android:gravity="start"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:text="Por"
+                    android:textColor="#686868" />
+
+                <TextView
+                    android:id="@+id/AutorNome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/DescricaoEvento"
+                    android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@id/AutorLabel"
+                    android:gravity="start"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Autor"
+                    android:textColor="#686868"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/AutorLabel"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/CalendarioIcon"
+                    android:background="@drawable/btn_confirmar_presenca"
+                    android:text="CONFIRMAR PRESENÇA"
+                    android:textColor="#FFF" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/DadosEventoLinha"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/DadosEvento"
+                android:layout_margin="10dp"
+                android:background="#ddd"
+                android:orientation="vertical"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/EstatisticasEvento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/DadosEventoLinha"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/DadosEventoLinha"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="9.999"
+                        android:textColor="#686868"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="COMPARECERAM"
+                        android:textColor="#686868" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="9.999"
+                        android:textColor="#686868"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="COMENTÁRIOS"
+                        android:textColor="#686868" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/EstatisticasEventoLinha"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/EstatisticasEvento"
+                android:layout_margin="10dp"
+                android:background="#ddd"
+                android:orientation="vertical"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/MenuEvento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/EstatisticasEventoLinha"
+                android:gravity="center"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:id="@+id/txtSobre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.25"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="menuEventoChange"
+                    android:tag="sobre"
+                    android:text="SOBRE"
+                    android:textColor="#686868"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtPrecos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.25"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="menuEventoChange"
+                    android:tag="precos"
+                    android:text="PREÇOS"
+                    android:textColor="#686868"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtPromocoes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.25"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="menuEventoChange"
+                    android:tag="promocoes"
+                    android:text="PROMOÇÕES"
+                    android:textColor="#686868"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.25"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="menuEventoChange"
+                    android:tag="fotos"
+                    android:text="FOTOS"
+                    android:textColor="#686868"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/MenuEventoLinhaTopo"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/MenuEvento"
+                android:layout_margin="10dp"
+                android:background="#ddd"
+                android:orientation="vertical"></LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/MenuEventoFrames"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/MenuEventoLinhaTopo">
+
+                <FrameLayout
+                    android:id="@+id/FrameSobre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/MenuEvento"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/TextoSobre"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="top|start"
+                                android:text="Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit.\nCras purus enim, dapibus sed tempus eu, \neleifend ut ex\nLorem ipsum dolor sit amet, \nconsectetur adipiscing elit.\nCras purus enim, dapibus sed tempus eu, \neleifend ut ex\nLorem ipsum dolor sit amet, \nconsectetur adipiscing elit.\nCras purus enim, dapibus sed tempus eu, \neleifend ut ex Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit.\nCras purus enim, dapibus sed tempus eu, \neleifend ut ex\nLorem ipsum dolor sit amet, \nconsectetur adipiscing elit.\nCras purus enim, dapibus sed tempus eu, \neleifend ut ex\nLorem ipsum dolor sit amet, \nconsectetur adipiscing elit.\nCras purus enim, dapibus sed tempus eu, \neleifend ut ex\n\nFIM"
+                                android:textColor="#333" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/TextoSobreLinha"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/TextoSobre"
+                            android:layout_margin="10dp"
+                            android:background="#ddd"
+                            android:orientation="vertical"></LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/DataEvento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/TextoSobreLinha"
+                            android:paddingTop="10dp">
+
+                            <com.joanzapata.iconify.widget.IconTextView
+                                android:id="@+id/CalendarioIconBottom"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_gravity="start|top"
+                                android:paddingLeft="10dp"
+                                android:text="{fa-calendar}"
+                                android:textColor="#2eb187"
+                                android:textSize="30dp" />
+
+                            <TextView
+                                android:id="@+id/LabelDataEvento"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_toRightOf="@id/CalendarioIconBottom"
+                                android:gravity="start|top"
+                                android:paddingLeft="10dp"
+                                android:text="DATA:"
+                                android:textColor="#686868"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/DataEventoBottom"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/LabelDataEvento"
+                                android:layout_toRightOf="@id/CalendarioIconBottom"
+                                android:gravity="start"
+                                android:paddingLeft="10dp"
+                                android:text="Sábado, 01 de janeiro de 2016 às 00:00"
+                                android:textColor="#686868" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/DataEventoLinha"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/DataEvento"
+                            android:layout_margin="10dp"
+                            android:background="#ddd"
+                            android:orientation="vertical"></LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/GeneroEvento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/DataEventoLinha"
+                            android:paddingTop="10dp">
+
+                            <com.joanzapata.iconify.widget.IconTextView
+                                android:id="@+id/GeneroIcon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_gravity="start|top"
+                                android:paddingLeft="10dp"
+                                android:text="{fa-music}"
+                                android:textColor="#2eb187"
+                                android:textSize="30dp" />
+
+                            <TextView
+                                android:id="@+id/LabelGenero"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_toRightOf="@id/GeneroIcon"
+                                android:gravity="start|top"
+                                android:paddingLeft="10dp"
+                                android:text="GÊNERO:"
+                                android:textColor="#686868"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/GeneroTexto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/LabelGenero"
+                                android:layout_toRightOf="@id/GeneroIcon"
+                                android:gravity="start"
+                                android:paddingLeft="10dp"
+                                android:text="Lorem ipsum dolor sit amet"
+                                android:textColor="#686868" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/GeneroEventoLinha"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/GeneroEvento"
+                            android:layout_margin="10dp"
+                            android:background="#ddd"
+                            android:orientation="vertical"></LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/EnderecoEvento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/GeneroEventoLinha"
+                            android:paddingBottom="20dp"
+                            android:paddingTop="10dp">
+
+                            <com.joanzapata.iconify.widget.IconTextView
+                                android:id="@+id/EnderecoIcon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_gravity="start|top"
+                                android:paddingLeft="10dp"
+                                android:text="{fa-map-marker}"
+                                android:textColor="#2eb187"
+                                android:textSize="30dp" />
+
+                            <TextView
+                                android:id="@+id/LabelEndereco"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_toRightOf="@id/EnderecoIcon"
+                                android:gravity="start|top"
+                                android:paddingLeft="10dp"
+                                android:text="ENDEREÇO:"
+                                android:textColor="#686868"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/EnderecoTexto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/LabelEndereco"
+                                android:layout_toRightOf="@id/EnderecoIcon"
+                                android:gravity="start"
+                                android:paddingLeft="10dp"
+                                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                                android:textColor="#686868" />
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/FramePrecos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/MenuEvento"
+                    android:layout_margin="10dp"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.joanzapata.iconify.widget.IconTextView
+                            android:id="@+id/PrecoMulherIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/female_cicle_shape"
+                            android:padding="5dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="{fa-female 150%}"
+                            android:textColor="#fff" />
+
+                        <TextView
+                            android:id="@+id/PrecoMulherLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/PrecoMulherIcon"
+                            android:text="Masculino / Feminino"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/PrecoMulherLabel"
+                            android:layout_toRightOf="@id/PrecoMulherIcon"
+                            android:text="Válido até 00:00" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:gravity="center_vertical"
+                            android:text="R$ 999,99"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/PrecoMulherLinha"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/PrecoMulherIcon"
+                            android:layout_margin="10dp"
+                            android:background="#ddd"
+                            android:orientation="vertical"></LinearLayout>
+
+                        <com.joanzapata.iconify.widget.IconTextView
+                            android:id="@+id/PrecoHomemIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_below="@id/PrecoMulherLinha"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/male_cicle_shape"
+                            android:gravity="left|center_vertical"
+                            android:padding="5dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="{fa-male 150%}"
+                            android:textColor="#fff" />
+
+                        <TextView
+                            android:id="@+id/PrecoHomemLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/PrecoMulherLinha"
+                            android:layout_toRightOf="@id/PrecoHomemIcon"
+                            android:text="Masculino / Feminino"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/PrecoHomemLabel"
+                            android:layout_toRightOf="@id/PrecoHomemIcon"
+                            android:text="Válido até 00:00" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/PrecoMulherLinha"
+                            android:gravity="center_vertical"
+                            android:text="R$ 999,99"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/FramePromocoes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/MenuEvento"
+                    android:layout_gravity="start|top"
+                    android:layout_margin="10dp"
+                    android:visibility="gone">
+
+                    <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/RecyclerViewPromocoes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|top" />
+
+                </FrameLayout>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/MenuEventoLinha"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/MenuEventoFrames"
+                android:layout_margin="10dp"
+                android:background="#ddd"
+                android:orientation="vertical"></LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/EventoFooter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/BtnVerIngressos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2eb187"
+            android:text="VER INGRESSOS"
+            android:textColor="#FFF" />
+    </LinearLayout>
+
+</RelativeLayout>
